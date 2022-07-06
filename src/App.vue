@@ -1,5 +1,6 @@
 <template>
-	<a-config-provider :locale="locale">
+	<!-- 设置全局化统一样式前缀 -->
+	<a-config-provider :locale="locale" prefixCls="main-ant">
 		<a-layout>
 			<a-layout-header class="header">
 				<div class="logo" />
@@ -98,7 +99,7 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss">
+<style lang="less">
 #main-app {
 	font-family: Avenir, Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;

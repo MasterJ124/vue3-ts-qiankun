@@ -5,10 +5,33 @@ import { message } from 'ant-design-vue';
 import {
 	registerMicroApps,
 	addGlobalUncaughtErrorHandler,
-	start
+	start,
+	initGlobalState,
+	MicroAppStateActions
 } from 'qiankun';
 // https://qiankun.umijs.org/zh/api
+
 import apps from './app'; // 子应用注册信息
+
+/**
+ * 定义全局状态，并返回通信方法，建议在主应用使用，微应用通过 props 获取通信方法。
+ *
+ * MicroAppStateActions
+ * * onGlobalStateChange: (callback: OnGlobalStateChangeCallback, fireImmediately?: boolean) => void， 在当前应用监听全局状态，有变更触发 callback，fireImmediately = true 立即触发 callback
+ * * setGlobalState: (state: Record<string, any>) => boolean， 按一级属性设置全局状态，微应用中只能修改已存在的一级属性
+ * * offGlobalStateChange: () => boolean，移除当前应用的状态监听，微应用 umount 时会默认调用
+ */
+
+const state = {
+	token: 'b18d618b88de990e6c3cf52056ca6106'
+};
+// 初始化 state
+const actions: MicroAppStateActions = initGlobalState({});
+
+actions.onGlobalStateChange((state, prev) => {
+	// state: 变更后的状态; prev 变更前的状态
+	console.log('全局状态 父应用', state, prev);
+});
 
 /**
  * 注册子应用
@@ -31,6 +54,13 @@ registerMicroApps(apps, {
 		// 加载子应用前，加载进度条
 		NProgress.start();
 		console.log('before load', app.name);
+		return Promise.resolve();
+	},
+	// qiankun 生命周期钩子 - 挂载前
+	beforeMount: (app) => {
+		console.log('before mount', app.name);
+		sessionStorage.setItem('token', 'b18d618b88de990e6c3cf52056ca6106');
+		actions.setGlobalState(state);
 		return Promise.resolve();
 	},
 	// qiankun 生命周期钩子 - 挂载后
