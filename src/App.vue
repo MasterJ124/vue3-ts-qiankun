@@ -14,9 +14,12 @@
 						<router-link to="/">主页</router-link>
 					</a-menu-item>
 					<a-menu-item key="2">
-						<router-link to="/tool-app">lianshan 小工具</router-link>
+						<router-link to="/tool-app/creative">lianshan 小工具</router-link>
 					</a-menu-item>
 					<a-menu-item key="3">
+						<router-link to="/tool-app/report-list">导入报表</router-link>
+					</a-menu-item>
+					<a-menu-item key="4">
 						<router-link to="/vite-app">vite 主页</router-link>
 					</a-menu-item>
 				</a-menu>

@@ -33,13 +33,13 @@ const apps: Array<App> = [
 		entry: '//localhost:8001',
 		container: '#container',
 		activeRule: '/tool-app'
+	},
+	{
+		name: 'ViteMicroApp',
+		entry: '//localhost:4000',
+		container: '#container',
+		activeRule: '/vite-app'
 	}
-	// {
-	// 	name: 'ViteMicroApp',
-	// 	entry: '//localhost:4000',
-	// 	container: '#container',
-	// 	activeRule: '/vite-app'
-	// }
 ];
 
 export default apps;

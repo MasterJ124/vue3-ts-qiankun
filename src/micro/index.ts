@@ -52,6 +52,7 @@ registerMicroApps(apps, {
 	// qiankun 生命周期钩子 - 加载前
 	beforeLoad: (app) => {
 		// 加载子应用前，加载进度条
+		sessionStorage.setItem('token', state.token);
 		NProgress.start();
 		console.log('before load', app.name);
 		return Promise.resolve();
@@ -59,8 +60,6 @@ registerMicroApps(apps, {
 	// qiankun 生命周期钩子 - 挂载前
 	beforeMount: (app) => {
 		console.log('before mount', app.name);
-		sessionStorage.setItem('token', 'b18d618b88de990e6c3cf52056ca6106');
-		actions.setGlobalState(state);
 		return Promise.resolve();
 	},
 	// qiankun 生命周期钩子 - 挂载后
