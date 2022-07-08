@@ -7,7 +7,7 @@ module.exports = {
   // 使用单引号
   singleQuote: true,
   // 尾随逗号
-  trailingComma: 'none',
+  trailingComma: 'all',
   // 在方法的花括号前面加空格
   spaceBeforeFunctionParen: true,
   // 用键位tab缩进
