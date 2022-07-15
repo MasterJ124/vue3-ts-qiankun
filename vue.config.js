@@ -4,11 +4,11 @@ module.exports = {
 		loaderOptions: {
 			less: {
 				modifyVars: {
-					'@ant-prefix': 'main-ant'
+					'@ant-prefix': 'main-ant',
 				},
-				javascriptEnabled: true
-			}
-		}
+				javascriptEnabled: true,
+			},
+		},
 	},
 	devServer: {
 		inline: true,
@@ -19,36 +19,36 @@ module.exports = {
 				ws: false,
 				changeOrigin: true,
 				pathRewrite: {
-					'^/api': ''
-				}
+					'^/api': '',
+				},
 			},
 			'/pre': {
 				target: 'http://api-pre.ad.netjoy.com',
 				ws: false,
 				changeOrigin: true,
 				pathRewrite: {
-					'^/pre': ''
-				}
+					'^/pre': '',
+				},
 			},
 			'/account': {
 				target: 'http://api.data.test.netjoy.com/',
 				ws: false,
 				changeOrigin: true,
 				pathRewrite: {
-					'^/account': ''
-				}
+					'^/account': '',
+				},
 			},
 			'/dingtalk': {
 				target: 'http://api.open.netjoy.com/',
 				ws: false,
 				changeOrigin: true,
 				pathRewrite: {
-					'^/dingtalk': ''
-				}
-			}
-		}
+					'^/dingtalk': '',
+				},
+			},
+		},
 	},
 	productionSourceMap: false,
 	lintOnSave: undefined,
-	transpileDependencies: ['vuex-persist']
+	transpileDependencies: ['vuex-persist'],
 };
